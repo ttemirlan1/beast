@@ -13,7 +13,7 @@ fs.readFile(
     'utf-8',
     (err, data) => {
         if (err) {
-            throw err;
+            res.send('some error from users')
         }
         else {
             router.get('/users', (req, res) => {
