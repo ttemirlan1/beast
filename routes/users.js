@@ -1,30 +1,26 @@
 const express = require('express');
 
-const path = require('path')
+const path = require('path');
 
-const fs = require('fs')
+const fs = require('fs');
 
 const router = express();
 
 const data = [];
 
 fs.readFile(
-    path.join(__dirname, '../data', 'users.json'),
-    'utf-8',
-    (err, data) => {
-        if (err) {
-            res.send('some error from users')
-        }
-        else {
-            router.get('/users', (req, res) => {
-                res.send(data);
-            })
-        }
+  path.join(__dirname, '../data', 'users.json'),
+  'utf-8',
+  (err, data) => {
+    if (err) {
+      res.send('some error from users');
+    } else {
+      router.get('/users', (req, res) => {
+        res.send(data);
+      });
     }
-)
-console.log(data)
-
-
-
+  }
+);
+console.log(data);
 
 module.exports = router;
